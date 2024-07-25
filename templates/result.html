@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Results</h1>
+    {% if transcript %}
+        <h2>Transcribed Text</h2>
+        <p>{{ text }}</p>
+        <form action="/analyze_sentiment" method="post">
+            <textarea name="text" rows="10" cols="50">{{ text }}</textarea><br>
+            <button type="submit">Analyze Sentiment</button>
+        </form>
+    {% endif %}
+    {% if sentiment %}
+        <h2>Sentiment Analysis</h2>
+        <p><strong>Positive:</strong> {{ sentiment.pos }}</p>
+        <p><strong>Negative:</strong> {{ sentiment.neg }}</p>
+        <p><strong>Neutral:</strong> {{ sentiment.neu }}</p>
+        <p><strong>Compound:</strong> {{ sentiment.compound }}</p>
+    {% endif %}
+    <a href="/">Back to Home</a>
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcription and Sentiment Analysis Result</title>
+</head>
+<body>
+    <h1>Analysis Results</h1>
+
+    {% if transcript %}
+        <h2>Transcription</h2>
+        <p>{{ text }}</p>
+    {% endif %}
+
+    {% if sentiment %}
+        <h2>Sentiment Analysis</h2>
+        <p><strong>Positive:</strong> {{ sentiment['pos'] }}</p>
+        <p><strong>Neutral:</strong> {{ sentiment['neu'] }}</p>
+        <p><strong>Negative:</strong> {{ sentiment['neg'] }}</p>
+        <p><strong>Compound:</strong> {{ sentiment['compound'] }}</p>
+    {% endif %}
+
+    <a href="/">Go Back</a>
+</body>
+</html>
+ -->
