@@ -22,8 +22,16 @@ Open the Web UI:
 
 Navigate to http://127.0.0.1:5000/ in your web browser.
 
+#Steps for Sentiment Analysis on web browser
 
-Using Postman
+1. upload a short video(1-5 minutes)
+2. Select Language of your choice
+3. WAIT!!!! (this process might take 2-4 minutes depending on your system)
+4. Result transcript is generated
+5. Click on Analyze Sentiment
+6. You will redirected to Sentiment Analysis Result 
+
+#Using Postman
 You can use Postman to interact with the API endpoints. Here’s how:
 
 1. Transcribe Video
