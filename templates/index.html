@@ -1,1 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcription and Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Upload Video for Transcription and Sentiment Analysis</h1>
+    <form action="/transcribe" method="post" enctype="multipart/form-data">
+        <label for="video">Choose Video File:</label>
+        <input type="file" id="video" name="video" required>
+        <label for="language">Language:</label>
+        <input type="text" id="language" name="language" value="fr">
+        <button type="submit">Upload and Transcribe</button>
+    </form>
+    {% if transcript %}
+        <h2>Transcribed Text</h2>
+        <form action="/analyze_sentiment" method="post">
+            <textarea name="text" rows="10" cols="50">{{ text }}</textarea><br>
+            <button type="submit">Analyze Sentiment</button>
+        </form>
+    {% endif %}
+</body>
+</html>
 
